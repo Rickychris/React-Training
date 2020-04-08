@@ -1,0 +1,30 @@
+.HeaderBottom{
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.HeaderBottom img{
+ align-self: center;
+}
+.HeaderBottom ul{
+    display: flex;
+    width: 70%;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+    color: #022737;
+    font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.HeaderBottom li{
+    height: 80px;
+   padding: 35px 0 23px 0 ;
+}
+.HeaderBottom li:hover{
+    border-bottom: 6px solid #006778;
+
+}
+    

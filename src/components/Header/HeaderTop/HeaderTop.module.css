@@ -1,0 +1,29 @@
+.Background{
+
+    background-color: #022737;
+}
+.HeaderTop{
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.HeaderTop ul{
+    list-style: none;
+    width: 50%;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+}
+
+.HeaderTop select{
+    border-radius: 10.5px;
+    width: 246px;
+    
+}
+
+.HeaderTop img{
+    /* height: 16px; */
+}
