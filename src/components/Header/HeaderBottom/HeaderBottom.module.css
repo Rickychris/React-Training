@@ -4,8 +4,13 @@
     justify-content: space-between;
 }
 
+.Background{
+    border-bottom: 1px solid #b6bdbd;
+}
+
 .HeaderBottom img{
  align-self: center;
+     padding: 6px 0 14px;
 }
 .HeaderBottom ul{
     display: flex;

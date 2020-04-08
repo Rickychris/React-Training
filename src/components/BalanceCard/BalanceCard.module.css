@@ -1,0 +1,32 @@
+.BalanceCard{
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.BalanceCard p:first-child{
+    color: #022737;
+    font-size: 24px;
+    line-height: 1.25;
+  letter-spacing: 0.5px;
+  
+
+}
+.BalanceCard p:nth-child(2){
+    
+     font-size: 42px;
+  font-weight: 300;
+  color:  #69923a;
+   padding-bottom: 28px;
+
+}
+.BalanceCard p:nth-child(3){
+    color: #006778;
+    font-size: 16px;
+  font-weight: bold;
+ letter-spacing: 0.5px;
+   
+
+}
+

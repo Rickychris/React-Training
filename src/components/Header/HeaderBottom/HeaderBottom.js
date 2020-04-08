@@ -13,12 +13,15 @@ const headetBottomData = [
 ];
 
 const headerBottom = () => (
-    <div className={[classes.HeaderBottom, 'MaxWidth'].join(' ')}>
-        <img src={Logo} alt='logo' />
-        <ul>
-            {headetBottomData.map(data => <li>{data}</li>)}
-        </ul>
+    <div className={classes.Background}>
 
+        <div className={[classes.HeaderBottom, 'MaxWidth'].join(' ')}>
+            <img src={Logo} alt='logo' />
+            <ul>
+                {headetBottomData.map(data => <li>{data}</li>)}
+            </ul>
+
+        </div>
     </div>
 );
 
