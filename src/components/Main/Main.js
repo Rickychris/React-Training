@@ -1,7 +1,8 @@
 import React from 'react';
 
 import classes from './Main.module.css';
-import BalaceCard from '../BalanceCard/BalanceCard';
+import MainTop from './MainTop/MainTop';
+import MainMiddle from './MainMiddle/MainMiddle';
 
 const cardData = {
     card1: ['Current Balance', '$120,000'],
@@ -10,8 +11,8 @@ const cardData = {
 
 const main = (props) => (
     <section className={classes.Main}>
-        <BalaceCard cardData={cardData.card1} />
-        <BalaceCard cardData={cardData.card2} />
+        <MainTop />
+        <MainMiddle />
 
     </section>
 );
