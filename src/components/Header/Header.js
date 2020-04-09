@@ -4,10 +4,10 @@ import HeaderTop from './HeaderTop/HeaderTop';
 import HeaderBottom from './HeaderBottom/HeaderBottom';
 
 const header = () => (
-    <React.Fragment>
+    <header>
         <HeaderTop />
         <HeaderBottom />
-    </React.Fragment>
+    </header>
 );
 
 export default header;

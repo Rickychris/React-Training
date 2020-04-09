@@ -1,0 +1,14 @@
+.PageInfo{
+    padding-bottom: 40px;
+}
+.PageInfo p:first-child{
+    color: #022737;
+    font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.PageInfo p:last-child{
+    color: #505050;
+    font-size: 16px;
+    line-height: 1.5;
+}
