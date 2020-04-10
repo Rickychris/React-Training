@@ -2,5 +2,6 @@
     background-color: #006778;
     height:50px;
     display: block;
+    border: none;
     flex: 1;
 }

@@ -8,7 +8,7 @@ const buttonData = ['Contribution', 'Grant', 'Exchange', 'Manage your account'];
 const mainMiddle = () => (
     <div className={[classes.MainMiddle, 'MaxWidth'].join(' ')}>
 
-        {buttonData.map(data => <Button name={data} />)}
+        {buttonData.map((data, id) => <Button invert={id === 3}> {data}</Button>)}
     </div>
 );
 
