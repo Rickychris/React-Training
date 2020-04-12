@@ -58,10 +58,11 @@
     .HeaderBottom ul{
         position: absolute;
         top:101%;
+        z-index: 11;
         /* left: -21%; */
         flex-direction: column;
         transform: translateX(100%);
-        /* display: none; */
+        display: none;
         width: 0%;
     }
     .HeaderBottom ul li{
