@@ -4,3 +4,15 @@
     line-height: 1.14;
     color: #022737;
 }
+@media (max-width:1024px){
+.PageHeading{
+    width: 90%;
+}
+
+}
+@media (max-width:320px){
+    .PageHeading{
+        width: 300px;
+        margin:0 20px;
+    }
+}

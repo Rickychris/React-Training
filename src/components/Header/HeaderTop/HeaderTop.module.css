@@ -31,3 +31,32 @@
 .HeaderTop img{
     /* height: 16px; */
 }
+@media (max-width:1190px){
+    .HeaderTop{
+        width: 90%;
+    }
+    .HeaderTop ul{
+        width: 100%;
+        margin-right: 10px;
+        justify-content: flex-end;
+    }
+    .HeaderTop ul li{
+     margin-left: 10px;
+}
+
+}
+@media (max-width:768px){
+   .HeaderTop ul{
+       width: 90%;
+       justify-content: flex-end;
+   }
+   .HeaderTop ul p{
+       display: none;
+   }
+}
+
+@media (max-width:320px){
+    .HeaderTop{
+        width: 320px;
+    }
+}

@@ -12,3 +12,16 @@
     font-size: 16px;
     line-height: 1.5;
 }
+
+@media (max-width:1024px){
+.PageInfo{
+    width: 90%;
+}
+
+}
+@media (max-width:320px){
+    .PageInfo{
+        width: 280px;
+        margin:0 20px;
+    }
+}

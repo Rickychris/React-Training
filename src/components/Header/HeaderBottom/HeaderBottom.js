@@ -20,7 +20,11 @@ const headerBottom = () => (
             <ul>
                 {headetBottomData.map(data => <li>{data}</li>)}
             </ul>
-
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
     </div>
 );
