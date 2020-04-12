@@ -1,5 +1,7 @@
 .HeaderBottom{
     height: 80px;
+    position: relative;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
@@ -14,7 +16,7 @@
 }
 .HeaderBottom ul{
     display: flex;
-    width: 70%;
+    /* width: 70%; */
     list-style: none;
     justify-content: space-between;
     align-items: center;
@@ -26,10 +28,56 @@
 
 .HeaderBottom li{
     height: 80px;
-   padding: 35px 0 23px 0 ;
+   padding: 35px 15px 23px  ;
 }
 .HeaderBottom li:hover{
     border-bottom: 6px solid #006778;
 
 }
+  
+.HeaderBottom> div {
+    display: none;
+   
+}
+.HeaderBottom> div > div {
     
+    width: 32px;
+    border-bottom: 2px solid #022737;
+    margin: 5px;
+}
+@media (max-width:1190px){
+    .HeaderBottom{
+        width: 90%;
+    }
+}
+@media (max-width:768px){
+    .HeaderBottom{
+        width: 90%;
+        overflow: hidden;
+    }
+    .HeaderBottom ul{
+        position: absolute;
+        top:101%;
+        /* left: -21%; */
+        flex-direction: column;
+        transform: translateX(100%);
+        /* display: none; */
+        width: 0%;
+    }
+    .HeaderBottom ul li{
+        background-color: white;
+        width: 100vw;
+        padding: 0px;
+        border-bottom:1px solid #ddd;
+
+
+    }
+     
+.HeaderBottom> div {
+    
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+}
+}

@@ -56,21 +56,6 @@ const tabData = [
     },
 ]
 
-// const StylTabs = styled.div`
-
-//     /* display:flex;
-//     &>div{
-//         padding:20px 35px;
-//         background-color:#f1f1f1;
-//         text-align:center;
-//         font-family: HelveticaNeue;
-//   font-size: 16px;
-//   font-weight: bold;
-//   line-height: 1;
-//   letter-spacing: 0.5px;
-//   color: #505050;
-//     } */
-// `;
 
 const StyledTable = styled.table`
 margin:20px 30px;
@@ -128,6 +113,7 @@ width:90%;
   color: #006778;
 }
 
+
 `;
 
 const TabNames = tabNames.map(tab => <Tab>{tab}</Tab>);
@@ -165,7 +151,7 @@ const TabView = () => {
     console.log(tabData);
     return (
 
-        // <StylTabs>
+
         <Tabs>
 
             <TabList>
@@ -176,7 +162,7 @@ const TabView = () => {
 
         </Tabs>
 
-        // </StylTabs>
+
 
 
     );

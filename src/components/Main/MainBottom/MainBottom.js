@@ -47,6 +47,21 @@ const MainBottomWrap = styled.div`
         top:0;
 
     }
+     @media (max-width:1024px) {
+        height:300px;
+         & > img {
+      
+        height:50%;
+        right:0;
+        top:50%;
+
+    }
+    }
+     @media (max-width:512px) {
+         width:90%;
+        height:400px;
+        
+    }
     
 `;
 
@@ -55,7 +70,7 @@ const Controls = styled.div`
     padding:20px;
     position:relative;
     z-index:10;
-    background:transparent;
+    /* background-color:transparent; */
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -66,6 +81,7 @@ const Controls = styled.div`
         left:0;
     
     }
+   
      
 `;
 

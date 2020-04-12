@@ -4,6 +4,9 @@ import styled from 'styled-components';
 
 const DataWrap = styled.div`
     display:flex;
+    /* background-color:transparent; */
+    position: relative;
+    z-index:1;
     width:300%;
     transform:translateX(${props => props.trns || '0%'});
     transition:transform 1s ease-in;
@@ -13,6 +16,7 @@ const DataWrap = styled.div`
 const DataDiv = styled.div`
     display:flex;
     padding:28px 72px;
+    /* background-color:transparent; */
     & div:first-child {
         margin-right:118px;
         & p:first-child{
@@ -31,6 +35,7 @@ const DataDiv = styled.div`
     }
     }
     & div:last-of-type {
+        /* background-color:transparent; */
         & p:first-child{
         color:#505050;
         font-family:HelvetivaNeue;
@@ -46,7 +51,23 @@ const DataDiv = styled.div`
 
     }
     }
+    @media (max-width:1024px) {
+        flex-direction:column;
+        /* height:200px; */
+        & P{
 
+            font-size:14px;
+        }
+    }
+
+     @media (max-width:320px) {
+          & div:first-child {
+        margin-right:0px;
+          }
+         & div{
+             width:130% !important;
+         }
+     }
    
 `;
 
