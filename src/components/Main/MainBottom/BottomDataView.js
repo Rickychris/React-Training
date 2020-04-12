@@ -30,14 +30,15 @@ const DataDiv = styled.div`
        color:#022737;
     }
     }
-    & div:last-child {
+    & div:last-of-type {
         & p:first-child{
         color:#505050;
+        font-family:HelvetivaNeue;
         font-size:16px;
         line-height: 1.5;
         margin:30px 0 20px 0;
     } 
-    & p:last-child{
+    & p:last-of-type{
         font-size: 16px;
         color:#006778;
   font-weight: bold;
@@ -46,6 +47,7 @@ const DataDiv = styled.div`
     }
     }
 
+   
 `;
 
 const BottomDataView = (props) => {
@@ -63,6 +65,7 @@ const BottomDataView = (props) => {
                         <p>{item.right1}</p>
                         <p>{item.right2}</p>
                     </div>
+
                 </DataDiv>
             ))}
         </DataWrap>
