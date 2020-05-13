@@ -2,16 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const DataWrap = styled.div`
-    display:flex;
-    /* background-color:transparent; */
-    position: relative;
-    z-index:1;
-    width:300%;
-    transform:translateX(${props => props.trns || '0%'});
-    transition:transform 1s ease-in;
-    
-`;
+// const DataWrap = styled.div`
+//     display:flex;
+//     /* background-color:transparent; */
+//     position: relative;
+//     z-index:1;
+//     width:300%;
+//     transform:translateX(${props => props.trns || '0%'});
+//     transition:transform 1s ease-in;
+
+// `;
 
 const DataDiv = styled.div`
     display:flex;
@@ -48,6 +48,12 @@ const DataDiv = styled.div`
         color:#006778;
   font-weight: bold;
   letter-spacing: 0.5px;
+   ::after{
+    margin-left: 10px;
+    /* align-self: center; */
+    content: url();
+     
+}
 
     }
     }
@@ -72,27 +78,18 @@ const DataDiv = styled.div`
 `;
 
 const BottomDataView = (props) => {
-
     return (
-        <DataWrap trns={props.trns}>
-            {console.log(props.trns, 'wdw')}
-            {props.data.map(item => (
-                <DataDiv key={item.id}>
-                    <div>
-                        <p>{item.left1}</p>
-                        <p>{item.left2}</p>
-                    </div>
-                    <div>
-                        <p>{item.right1}</p>
-                        <p>{item.right2}</p>
-                    </div>
+        <DataDiv>
+            <div>
+                <p>{props.data.left1}</p>
+                <p>{props.data.left2}</p>
+            </div>
+            <div>
+                <p>{props.data.right1}</p>
+                <p>{props.data.right2}</p>
+            </div>
 
-                </DataDiv>
-            ))}
-        </DataWrap>
-
-
-
+        </DataDiv>
     );
 }
 

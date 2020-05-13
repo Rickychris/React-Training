@@ -1,5 +1,7 @@
 import React from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+// import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import Tabs from 'react-bootstrap/Tabs';
+import Tab from 'react-bootstrap/Tab';
 import 'react-tabs/style/react-tabs.css';
 import './Tabview.css';
 
@@ -7,52 +9,63 @@ import styled from 'styled-components';
 
 
 
-const tabNames = ['Grants (1)', 'Contributions (1890)', 'Exchange (0)', 'Other Transactions (0)'];
 const tabData = [
+    {
+        'name': 'Grants (1)',
+        'GiftId': 'Gift ID: 4436109-1',
+        'desc': 'Vanguard Corona relief Admiral Shares.',
+        'tableData': {
+            'Entered date': '31/6/2019',
+            'Received date': '31/6/2019',
+            'Number of shares': '39',
+            'Type': 'VBS Security',
+            'Amount': '$20,000.00',
+            'Status': 'Entered',
+        },
+        'linkBtn': 'View Grants Activity'
+    },
+    {
+        'name': 'Contributions (1890)',
 
-    {
-        GiftId: 'Gift ID: 4436109-1',
-        desc: 'Vanguard Corona relief Admiral Shares.',
-        tableData: {
-            tableTitle1: ['Entered date', 'Received date', 'Number of shares',],
-            tableTitle2: ['Type', 'Amount', 'Status'],
-            tableValue1: ['31/6/2019', '17/3/2019', '39',],
-            tableValue2: ['VBS Security', '$20,000.00', 'Entered']
+        'GiftId': 'Gift ID: 4436109-2',
+        'desc': 'Vanguard New Jersey Long-Term Tax-Exempt Fund Admiral Shares.',
+        'tableData': {
+            'Entered date': '10/4/2019',
+            'Received date': '10/4/2019',
+            'Number of shares': '50',
+            'Type': 'VBS Security',
+            'Amount': '$50,000.00',
+            'Status': 'Entered',
         },
-        linkBtn: 'View Contribution Activity'
+        'linkBtn': 'View Contribution Activity'
     },
     {
-        GiftId: 'Gift ID: 4436109-2',
-        desc: 'Vanguard New Jersey Long-Term Tax-Exempt Fund Admiral Shares.',
-        tableData: {
-            tableTitle1: ['Entered date', 'Received date', 'Number of shares',],
-            tableTitle2: ['Type', 'Amount', 'Status'],
-            tableValue1: ['10/4/2019', '10/4/2019', '50',],
-            tableValue2: ['VBS Safety', '$50,000.00', 'Entered']
+        'name': 'Exchange (0)',
+        'GiftId': 'Gift ID: 4436109-3',
+        'desc': 'Vanguard New Jersey Long-Term Tax-Exempt Fund Admiral Shares.',
+        'tableData': {
+            'Entered date': '31/2/2019',
+            'Received date': '31/6/2019',
+            'Number of shares': '89',
+            'Type': 'VBS Security',
+            'Amount': '$189,000.00',
+            'Status': 'Entered',
         },
-        linkBtn: 'View Contribution Activity'
+        'linkBtn': 'View Exchange Activity'
     },
     {
-        GiftId: 'Gift ID: 4436109-3',
-        desc: 'Vanguard New Jersey Long-Term Tax-Exempt Fund Admiral Shares.',
-        tableData: {
-            tableTitle1: ['Entered date', 'Received date', 'Number of shares',],
-            tableTitle2: ['Type', 'Amount', 'Status'],
-            tableValue1: ['20/3/2019', '01/12/2019', '45',],
-            tableValue2: ['VBS Security', '$120,000.00', 'Entered']
+        'name': 'Other Transactions (0)',
+        'GiftId': 'Gift ID: 4436109-4',
+        'desc': 'Vanguard Corona relief Admiral Shares.',
+        'tableData': {
+            'Entered date': '20/6/2019',
+            'Received date': '31/6/2019',
+            'Number of shares': '45',
+            'Type': 'Always Secure',
+            'Amount': '$120,000.00',
+            'Status': 'Entered',
         },
-        linkBtn: 'View Contribution Activity'
-    },
-    {
-        GiftId: 'Gift ID: 4436109-4',
-        desc: 'Vanguard New Jersey Long-Term Tax-Exempt Fund Admiral Shares.',
-        tableData: {
-            tableTitle1: ['Entered date', 'Received date', 'Number of shares',],
-            tableTitle2: ['Type', 'Amount', 'Status'],
-            tableValue1: ['24/10/2019', '10/3/2019', '76',],
-            tableValue2: ['Divine Secure', '$189,000.00', 'Entered']
-        },
-        linkBtn: 'View Contribution Activity'
+        'linkBtn': 'View Other Transactions'
     },
 ]
 
@@ -116,52 +129,46 @@ width:90%;
 
 `;
 
-const TabNames = tabNames.map(tab => <Tab>{tab}</Tab>);
-const TabData = tabData.map(tab => {
-    return (
-
-        <TabPanel key={tab.GiftId}>
-            <StyledTable>
-                <h3>{tab.GiftId}</h3>
-                <p>{tab.desc}</p>
-                <tr>
-                    {tab.tableData.tableTitle1.map(d => <th>{d}</th>)}
-
-                </tr>
-                <tr>
-                    {tab.tableData.tableValue1.map(d => <td>{d}</td>)}
-
-                </tr>
-                <tr>
-                    {tab.tableData.tableTitle2.map(d => <th>{d}</th>)}
-
-                </tr>
-                <tr>
-                    {tab.tableData.tableValue2.map(d => <td>{d}</td>)}
-                </tr>
-                <hr></hr>
-                <p>{tab.linkBtn}</p>
-            </StyledTable>
-
-        </TabPanel>
-    );
-});
 const TabView = () => {
 
-    console.log(tabData);
     return (
-
-
         <Tabs>
+            {
+                tabData.map(item => (
+                    <Tab eventKey={item.name} title={item.name}>
 
-            <TabList>
-                {TabNames}
-            </TabList>
+                        <StyledTable>
+                            <h3>{item.GiftId}</h3>
+                            <p>{item.desc}</p>
+                            <tr>
+                                <th>Entered date</th>
+                                <th>Received date</th>
+                                <th>Number of shares</th>
+                            </tr>
+                            <tr>
+                                <td>{item.tableData["Entered date"]}</td>
+                                <td>{item.tableData["Received date"]}</td>
+                                <td>{item.tableData["Number of shares"]}</td>
+                            </tr>
+                            <tr>
 
-            {TabData}
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                            <tr>
+                                <td>{item.tableData.Type}</td>
+                                <td>{item.tableData.Amount}</td>
+                                <td>{item.tableData.Status}</td>
+                            </tr>
+                            <hr></hr>
+                            <p>{item.linkBtn}</p>
+                        </StyledTable>
+                    </Tab>
+                ))
+            }
 
         </Tabs>
-
 
 
 

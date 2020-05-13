@@ -11,6 +11,7 @@ const balanceCard = (props) => {
     return (
         <div className={[classes.BalanceCard]}>
             {cardData.map(data => <p>{data}</p>)}
+
         </div>
     );
 
