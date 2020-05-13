@@ -1,22 +1,19 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './reset.css';
 import './App.css';
-import Header from './components/Header/Header';
-import Breadcrumb from './components/Breadcrumb/Breadcrumb';
-import PageHeading from './components/PageHeading/PageHeading';
-import PageInfo from './components/PageInfo/PageInfo';
-import Main from './components/Main/Main';
+import Homepage from './pages/homepage';
+import NeedAssistance from './pages/need-assistance/need_assistance';
 
 function App() {
   return (
-    <React.Fragment>
-      <Header />
-      <Breadcrumb path='Home   >   Account overview' />
-      <PageHeading title='Account Overview' />
-      <PageInfo data1='The Church Fund - A1050919' data2='Balances as of 12/12/2012' />
-      <Main />
+    <BrowserRouter>
+      <Route path='/' exact component={Homepage} />
+      <Route path='/need-assistance' component={NeedAssistance} />
 
-    </React.Fragment>
+    </BrowserRouter>
   );
 }
 

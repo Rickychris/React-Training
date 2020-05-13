@@ -2,6 +2,7 @@ import React from 'react';
 
 import classes from './MainMiddle.module.css';
 import Button from '../../Button/Button';
+// import ArrowImg from '../../../assets/images/arrow-white-r.png';
 
 
 const buttonData = ['Contribution', 'Grant', 'Exchange', 'Manage your account'];

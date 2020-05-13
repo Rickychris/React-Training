@@ -4,6 +4,16 @@
 
     justify-content: space-between;
 }
+.MainMiddle button::after{
+    margin-left: 10px;
+    align-self: center;
+    content: url(../../../assets/images/arrow-white-r.png);
+}
+.MainMiddle button:last-child::after{
+    margin-left: 10px;
+    align-self: center;
+    content: url(../../../assets/images/arrow-teal-r.png);
+}
 
 @media (max-width: 1024px) {
     .MainMiddle{

@@ -5,6 +5,54 @@
     max-width: 1160px;
     margin: auto;
 }
+@font-face {
+  font-family: HelveticaNeue;
+  src: url(./assets/fonts/HelveticaNeue-Condensed.ttf);
+}
+a{
+  color: white;
+}
+a:hover{
+  color: #bdb9b9;
+  text-decoration: none;
+}
+.nav {
+    flex-wrap: nowrap;
+}
+.carousel {
+    position: unset;
+}
+.carousel-control-next-icon{
+        background-image: url('./assets/images/circle-arrow-r.png');
+}
+.carousel-control-prev-icon{
+        background-image: url('./assets/images/circle-arrow-l.png');
+}
+.carousel-control-next, .carousel-control-prev {
+    width :5%;
+}
+.nav-tabs .nav-item {
+  color: #505050;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  background-color: #f1f1f1;
+  border: 0.1px solid #eaeaea;
+  border-top: 4px solid rgba(0, 103, 120, 0.1);
+
+}
+.nav-tabs .nav-link.active {
+  color: #006778;
+  border-top: 4px solid #006778;
+
+}
+.nav-link {
+  padding:15px 25px;
+border-top-left-radius: 0;
+    border-top-right-radius: 0;}
+    .nav-tabs .nav-link {
+      border-radius: 0;
+    }
 @media (max-width:320px){
     header{
         width: 320px;

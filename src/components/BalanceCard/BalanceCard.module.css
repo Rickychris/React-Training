@@ -13,7 +13,11 @@
     line-height: 1.25;
   letter-spacing: 0.5px;
   
-
+  
+}
+.BalanceCard p:first-child::after{
+  margin-left: 10px;
+  content: url(../../assets/images/shape.png);
 }
 .BalanceCard p:nth-child(2){
     
@@ -32,3 +36,8 @@
 
 }
 
+.BalanceCard p:nth-child(3)::after{
+    margin-left: 10px;
+    
+  content: url(../../assets/images/arrow-teal-r.png);
+}
