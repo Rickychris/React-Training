@@ -69,7 +69,7 @@ class MainBottom extends React.Component {
         return (
             <MainBottomWrap className='MaxWidth' >
                 <img src={LeafImg} alt='leaf-img'></img>
-                <Carousel autoplay speed={1000}>
+                <Carousel autoplay speed={300}>
 
                     {btmData.map(item => (
 
