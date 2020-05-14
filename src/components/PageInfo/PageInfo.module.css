@@ -12,10 +12,24 @@
     font-size: 16px;
     line-height: 1.5;
 }
-
+.PageInfo input{
+     width:200px;
+     padding:4px;
+     margin-right:10px;
+ }
+  .PageInfo button{
+       margin:0 5px;
+       padding: 0 5px;
+  }
+  .PageInfo code{
+       margin:0 5px;
+       padding: 0 5px;
+       cursor: pointer;
+  }
 @media (max-width:1024px){
 .PageInfo{
     width: 90%;
+    background-color: turquoise;
 }
 
 }

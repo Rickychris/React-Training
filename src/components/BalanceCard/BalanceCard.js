@@ -10,7 +10,7 @@ const balanceCard = (props) => {
 
     return (
         <div className={[classes.BalanceCard]}>
-            {cardData.map(data => <p>{data}</p>)}
+            {cardData.map(data => <p key={data}>{data}</p>)}
 
         </div>
     );

@@ -18,7 +18,7 @@ const headerBottom = () => (
         <div className={[classes.HeaderBottom, 'MaxWidth'].join(' ')}>
             <img src={Logo} alt='logo' />
             <ul>
-                {headetBottomData.map(data => <li>{data}</li>)}
+                {headetBottomData.map(data => <li key={data}>{data}</li>)}
             </ul>
             <div>
                 <div></div>

@@ -21,8 +21,11 @@
 .HeaderTop ul li{
      align-self: center;
 }
-
+  .HeaderTop ul p{
+      cursor: pointer;
+  }
 .HeaderTop select{
+    color:black;
     border-radius: 10.5px;
     width: 246px;
     

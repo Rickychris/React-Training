@@ -135,7 +135,7 @@ const TabView = () => {
         <Tabs>
             {
                 tabData.map(item => (
-                    <Tab eventKey={item.name} title={item.name}>
+                    <Tab eventKey={item.name} key={item.name} title={item.name}>
 
                         <StyledTable>
                             <h3>{item.GiftId}</h3>

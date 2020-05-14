@@ -1,20 +1,26 @@
 import styled from 'styled-components';
 
 
-export const DarkBackground = styled.div`
-background-color:rgba(0,0,0,0.5);
-display:flex;
-justify-content:flex-end;
-/* height:100vh; */
-`;
+// export const DarkBackground = styled.div`
+// background-color:rgba(0,0,0,0.5);
+// position: absolute;
+// z-index:10;
+// top:0;
+// right:0;
+// left:0;
+// bottom:0;
+// display:flex;
+// justify-content:flex-end;
+// /* height:100%; */
+// `;
 
 export const FormWrap = styled.div`
-background-color:white;
-width:50%;
+/* background-color:white; */
+/* width:50%; */
 padding:50px;
 padding-right:120px;
-position: relative;
-/* height:50%; */
+/* position: relative; */
+/* height:170vh; */
 /* position:relative; */
 /* right:0; */
 & > h1{
@@ -37,12 +43,19 @@ position: relative;
 & hr{
     color:#d4d4d4;
 }
- & img{
+& p:nth-child(5){
+color:#505050;
+ font-size:16px;
+ & span{
+        font-weight:bold;
+    }
+}
+ /* & img{
         position: absolute;
         right: 30px;
         top: 20px;
         cursor: pointer;
-    }
+    } */
 & form{
     max-width: 80%;
     /* margin: auto; */
@@ -109,20 +122,20 @@ width:100%;
 `;
 
 export const FormDone = styled.div`
-background-color:white;
-width:50%;
-min-height:100vh;
+/* background-color:white; */
+/* width:50%; */
+/* min-height:100vh; */
 padding:50px;
 padding-right:80px;
 /* position: absolute; */
 /* top:0; */
 /* left:0; */
- & img{
+ /* & img{
         position: absolute;
         right: 30px;
         top: 20px;
         cursor: pointer;
-    }
+    } */
 &> h2{
     padding-top: 30px;
     color: #022737;

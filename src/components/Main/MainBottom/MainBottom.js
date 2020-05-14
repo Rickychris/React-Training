@@ -4,7 +4,8 @@ import styled from 'styled-components';
 
 import LeafImg from '../../../assets/images/vc-logo-cmyk-leaf-01.png';
 import BottomDataView from './BottomDataView';
-import Carousel from 'react-bootstrap/Carousel'
+// import Carousel from 'react-bootstrap/Carousel';
+import { Carousel } from 'antd';
 
 const btmData = [
     {
@@ -68,11 +69,12 @@ class MainBottom extends React.Component {
         return (
             <MainBottomWrap className='MaxWidth' >
                 <img src={LeafImg} alt='leaf-img'></img>
-                <Carousel>
+                <Carousel autoplay speed={1000}>
+
                     {btmData.map(item => (
-                        <Carousel.Item key={item.id}>
-                            <BottomDataView data={item} />
-                        </Carousel.Item>
+
+                        <BottomDataView key={item.id} data={item} />
+
                     ))}
                 </Carousel>
             </MainBottomWrap>
