@@ -1,12 +1,12 @@
 import React from 'react';
-// import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import Tabs from 'react-bootstrap/Tabs';
-import Tab from 'react-bootstrap/Tab';
+import { Tabs } from 'antd';
+
 import 'react-tabs/style/react-tabs.css';
 import './Tabview.css';
 
 import styled from 'styled-components';
 
+const { TabPane } = Tabs;
 
 
 const tabData = [
@@ -112,7 +112,7 @@ width:90%;
 }
 & hr{
     margin:10px 0;
-    color:#d4d4d4;
+    background-color:#d4d4d4;
     height:2px;
     opacity:0.9;
 }
@@ -132,10 +132,10 @@ width:90%;
 const TabView = () => {
 
     return (
-        <Tabs>
+        <Tabs type='card'>
             {
                 tabData.map(item => (
-                    <Tab eventKey={item.name} key={item.name} title={item.name}>
+                    <TabPane key={item.name} tab={item.name}>
 
                         <StyledTable>
                             <h3>{item.GiftId}</h3>
@@ -164,7 +164,7 @@ const TabView = () => {
                             <hr></hr>
                             <p>{item.linkBtn}</p>
                         </StyledTable>
-                    </Tab>
+                    </TabPane>
                 ))
             }
 

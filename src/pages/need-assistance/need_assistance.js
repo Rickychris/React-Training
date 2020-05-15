@@ -79,7 +79,7 @@ class NeedAssistance extends React.Component {
                     </div>
                     <p>You have successfully submmited your request for assistance.
                     We will get back to you within 2 - 3 business days.</p>
-                    <Link to='/'><Button invert>DONE</Button></Link>
+                    <Button invert onClick={this.props.drawerHandler}>DONE</Button>
                     <h3>Hit a snag?</h3>
                     <span>Contact us at 888-383-4483</span>
                 </FormDone>
@@ -92,13 +92,11 @@ const mapStateToProps = state => {
         fundName: state.fundName,
     };
 }
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         changeName: (e) => dispatch({ type: 'Change-Name', updatedName: e.target.value }),
-//         updateName: () => dispatch({ type: 'Update-Name' }),
-//         cancelChange: () => dispatch({ type: 'Cancel-Change' })
-//     };
-// }
+const mapDispatchToProps = dispatch => {
+    return {
+        drawerHandler: () => dispatch({ type: 'Drawer' }),
+    };
+}
 
-export default connect(mapStateToProps)(NeedAssistance);
+export default connect(mapStateToProps, mapDispatchToProps)(NeedAssistance);
 

@@ -5,7 +5,7 @@ import { createStore } from 'redux';
 
 import reducer from './store/reducer';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import 'antd/dist/antd.css';
 import './reset.css';
 import './App.css';
