@@ -31,8 +31,8 @@ class ManageData extends React.Component {
                     window.location.reload();
                 }}>Delete All</styledComp.styleButton>
                     : <styledComp.styleH1>No Data to Display!</styledComp.styleH1>}
-                <styledComp.styleButton><Link to='/'>Back</Link></styledComp.styleButton>
-            </div>
+                <Link to='/'><styledComp.styleButton>Back</styledComp.styleButton></Link>
+            </div >
         );
     }
 }
