@@ -13,13 +13,13 @@ body, html {
   font-family: HelveticaNeue;
   src: url(./assets/fonts/HelveticaNeue-Condensed.ttf);
 } */
-a{
+/* a{
   color: white;
 }
 a:hover{
   color: #bdb9b9;
   text-decoration: none;
-}
+} */
 .ant-drawer-content-wrapper{
   width: 50% !important;
 }

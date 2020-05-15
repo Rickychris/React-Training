@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Button from '../../components/Button/Button';
 import { FormWrap, FormDone } from './need-style';
 // import cancelImg from '../../assets/images/cancel.png'
+
 
 class NeedAssistance extends React.Component {
     state = {
@@ -13,6 +14,7 @@ class NeedAssistance extends React.Component {
             email: '',
             query: '',
         },
+
         validSubmit: false,
     }
     changeHandler = (e) => {
@@ -27,21 +29,21 @@ class NeedAssistance extends React.Component {
     }
     submitHandler = (e) => {
         e.preventDefault();
-        // window.scrollTo(0, 0);
-
-        let List;
-        let data = localStorage.getItem("DATA");
-
-        if (data) {
-            List = JSON.parse(data);
-        } else {
-            List = [];
-        }
-        List.push({ ...this.state.formData });
-        localStorage.setItem("DATA", JSON.stringify(List));
+        this.props.submitData({ ...this.state.formData, key: this.props.keyValue });
         this.setState({
-            validSubmit: true
+            validSubmit: true,
         });
+        // window.scrollTo(0, 0);
+        // let List;
+        // let data = localStorage.getItem("DATA");
+
+        // if (data) {
+        //     List = JSON.parse(data);
+        // } else {
+        //     List = [];
+        // }
+        // List.push({ ...this.state.formData });
+        // localStorage.setItem("DATA", JSON.stringify(List));
     }
 
     render() {
@@ -90,11 +92,13 @@ class NeedAssistance extends React.Component {
 const mapStateToProps = state => {
     return {
         fundName: state.fundName,
+        keyValue: state.keyValue
     };
 }
 const mapDispatchToProps = dispatch => {
     return {
         drawerHandler: () => dispatch({ type: 'Drawer' }),
+        submitData: (addData) => dispatch({ type: 'Submit', addData: addData }),
     };
 }
 

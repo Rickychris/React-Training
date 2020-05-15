@@ -23,7 +23,7 @@ const headerTop = (props) => (
                 <li> <Link to='/data'><img src={ContactIcon} alt='contact-img'></img></Link></li>
             </ul>
             <Drawer onClose={props.drawerHandler}
-                visible={props.drawer}>
+                visible={props.drawer} destroyOnClose>
                 <NeedAssistance />
             </Drawer>
         </div>

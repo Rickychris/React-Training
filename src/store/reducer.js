@@ -1,4 +1,5 @@
 const initialState = {
+    data: [],
     drawer: false,
     allFunds: [
         { id: 0, name: 'The Church Fund - A1050919' },
@@ -7,39 +8,77 @@ const initialState = {
     ],
     fundName: 'The Church Fund - A1050919',
     whileUpdating: '',
-    index: 0
+    index: 0,
+    keyValue: 0,
 };
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'Drawer':
             return {
-                ...initialState,
+                ...state,
                 drawer: !state.drawer
             };
         case 'Selection-Changed':
             return {
-                ...initialState,
+                ...state,
                 fundName: state.allFunds[action.id].name,
                 index: action.id
             };
         case 'Change-Name':
             return {
-                ...initialState,
+                ...state,
                 whileUpdating: action.updatedName
             };
         case 'Update-Name':
             let updatedAllFunds = [...state.allFunds];
             updatedAllFunds[state.index].name = state.whileUpdating;
             return {
-                ...initialState,
+                ...state,
                 allFunds: [...updatedAllFunds],
                 fundName: state.whileUpdating
             };
         case 'Cancel-Change':
             return {
-                ...initialState,
+                ...state,
                 whileUpdating: state.fundName
+            };
+        case 'Get-Data':
+            let getData = localStorage.getItem("DATA");
+            let dataList = [];
+            if (getData) {
+                dataList = JSON.parse(getData);
+
+                // for (let i = 0; i < dataList.length; i++) {
+                //     dataList[i].key = i;
+                // }
+            }
+            return {
+                ...state,
+                data: [...dataList]
+            };
+        case 'Delete-Data':
+            const updateList = [...state.data];
+            const newData = updateList.filter(item => item.key !== action.key);
+            localStorage.setItem("DATA", JSON.stringify(newData));
+
+            return {
+                ...state,
+                data: newData
+            };
+        case 'Submit':
+            let newList = [];
+            let data = state.data;
+
+            if (data.length > 0) {
+                newList = data;
+            }
+            newList.push(action.addData);
+            localStorage.setItem("DATA", JSON.stringify(newList));
+            return {
+                ...state,
+                data: newList,
+                keyValue: state.keyValue + 1
             };
         default:
             return state;
