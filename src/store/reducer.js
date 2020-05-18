@@ -54,14 +54,11 @@ const reducer = (state = initialState, action) => {
             let dataList = [];
             if (getData) {
                 dataList = JSON.parse(getData);
-
-                // for (let i = 0; i < dataList.length; i++) {
-                //     dataList[i].key = i;
-                // }
             }
             return {
                 ...state,
-                data: [...dataList]
+                data: [...dataList],
+                keyValue: dataList.length
             };
         case 'Delete-Data':
             const updateList = [...state.data];
