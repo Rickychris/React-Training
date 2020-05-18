@@ -13,15 +13,18 @@ body, html {
   font-family: HelveticaNeue;
   src: url(./assets/fonts/HelveticaNeue-Condensed.ttf);
 } */
-a{
+/* a{
   color: white;
 }
 a:hover{
   color: #bdb9b9;
   text-decoration: none;
-}
+} */
 .ant-drawer-content-wrapper{
   width: 50% !important;
+}
+.ant-drawer-body{
+  padding: 0;
 }
 .nav {
     flex-wrap: nowrap;
@@ -81,6 +84,12 @@ border-top-left-radius: 0;
     .nav-tabs .nav-link {
       border-radius: 0;
     } */
+
+    @media (max-width:768px){ 
+      .ant-drawer-content-wrapper{
+  width:100% !important;
+}
+    } 
 @media (max-width:320px){
     header{
         width: 320px;

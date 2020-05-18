@@ -42,12 +42,14 @@ padding-right:120px;
 }
 & hr{
     color:#d4d4d4;
+    margin:30px 0;
 }
 & p:nth-child(5){
 color:#505050;
  font-size:16px;
  & span{
         font-weight:bold;
+        color:#022737;
     }
 }
  /* & img{
@@ -172,6 +174,7 @@ padding-right:80px;
     width: 200px;
     height: 50px;
     display: block;
+    cursor: pointer;
 }
 &> h3{
     color: #022737;

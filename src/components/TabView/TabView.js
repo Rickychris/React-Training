@@ -113,7 +113,7 @@ width:90%;
 & hr{
     margin:10px 0;
     background-color:#d4d4d4;
-    height:2px;
+    /* height:2px; */
     opacity:0.9;
 }
 & p:last-of-type{
