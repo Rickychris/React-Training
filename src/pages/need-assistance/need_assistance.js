@@ -58,13 +58,13 @@ class NeedAssistance extends React.Component {
                     <p>Seeking Assistance for&nbsp;<span>‘{this.props.fundName}’</span> </p>
                     <form onSubmit={this.submitHandler}>
                         <label htmlFor="name">Full Name <strong>*</strong></label><br />
-                        <input type="text" name="name" /*required*/ id="name" onChange={this.changeHandler} value={this.state.formData.name} />
+                        <input type="text" name="name" required id="name" onChange={this.changeHandler} value={this.state.formData.name} />
                         <br />
                         <label htmlFor="email">Email Address<strong>*</strong></label><br />
-                        <input type="email" name="email" /*required*/ id="email" onChange={this.changeHandler} value={this.state.formData.email} />
+                        <input type="email" name="email" required id="email" onChange={this.changeHandler} value={this.state.formData.email} />
                         <br />
                         <label htmlFor="query">Query<strong>*</strong></label><br />
-                        <textarea name="query" id="query" /*required*/ cols="40" rows="10"
+                        <textarea name="query" id="query" required cols="40" rows="10"
                             placeholder="Please describe your query" onChange={this.changeHandler} value={this.state.formData.query} ></textarea>
                         <Button type="submit">SEND</Button>
                         <h3>Hit a snag?</h3>
