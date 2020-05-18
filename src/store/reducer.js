@@ -1,6 +1,7 @@
 const initialState = {
     data: [],
     drawer: false,
+    ResponsiveNav: false,
     allFunds: [
         { id: 0, name: 'The Church Fund - A1050919' },
         { id: 1, name: 'The Corona Relief Fund - A1090429' },
@@ -18,6 +19,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 drawer: !state.drawer
+            };
+        case 'ResponsiveNav':
+            return {
+                ...state,
+                ResponsiveNav: !state.ResponsiveNav
             };
         case 'Selection-Changed':
             return {
@@ -59,12 +65,24 @@ const reducer = (state = initialState, action) => {
             };
         case 'Delete-Data':
             const updateList = [...state.data];
+            // console.log(action.key);
+            // console.log(state.data);
+            // const newData = [...state.data].splice(action.key, 1);
             const newData = updateList.filter(item => item.key !== action.key);
             localStorage.setItem("DATA", JSON.stringify(newData));
 
             return {
                 ...state,
                 data: newData
+            };
+        case 'Update-Data':
+
+            const nwData = [...action.newData];
+            localStorage.setItem("DATA", JSON.stringify(nwData));
+
+            return {
+                ...state,
+                data: nwData
             };
         case 'Submit':
             let newList = [];

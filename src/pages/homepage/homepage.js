@@ -10,27 +10,31 @@ import PageInfo from '../../components/PageInfo/PageInfo';
 import Main from '../../components/Main/Main';
 
 // import NeedAssistance from '../need-assistance/need_assistance';
-import { HomeWrap } from './homeStyle';
+import { NavWrap } from './homeStyle';
 // import ManageData from './manageData/manageData';
+import ResponsiveNav from '../../components/Header/HeaderBottom/HeaderResponsive'
 
 class Homepage extends React.Component {
     render() {
         return (
-            <HomeWrap>
+            <>
                 {/* <button onClick={this.props.drawerHandler}>click</button> */}
                 {/* <Route path='/need-assistance' component={NeedAssistance} /> */}
                 <Header />
-                <Breadcrumb path='Home   >   Account overview' />
-                <PageHeading title='Account Overview' />
-                <PageInfo />
-                <Main />
+                <NavWrap>
+                    <ResponsiveNav />
+                    <Breadcrumb path='Home   >   Account overview' />
+                    <PageHeading title='Account Overview' />
+                    <PageInfo />
+                    <Main />
+                </NavWrap>
                 {/* <Drawer onClose={this.props.drawerHandler}
                     visible={this.props.drawer}>
                     <NeedAssistance />
                 </Drawer> */}
+            </>
 
 
-            </HomeWrap>
         );
 
     }
