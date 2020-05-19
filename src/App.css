@@ -60,7 +60,15 @@ a:hover{
   border-top: 4px solid #006778;
   background-color: white;
 }
-
+.ant-table-thead > tr > th{
+  /* background: rgb(241, 235, 235); */
+  font-size: 18px;
+  font-weight: bold;
+  color:#006778;
+}
+.tableStyles{
+  margin:10px
+}
 /* 
 .nav-tabs .nav-item {
   color: #505050;

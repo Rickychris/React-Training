@@ -11,16 +11,23 @@ export const styleP = styled.p`
 margin:5px;
 `;
 export const styleH1 = styled.h1`
-margin:50px;
+margin:30px;
 font-size:36px;
 color:#022737;
 `;
 
 export const styleButton = styled.button`
-background-color:${props => props.danger ? 'red' : 'limegreen'};
-margin:25px;
-width:100px;
-font-weight:bold;
-color:#022737;
-height:50px;
+border: ${props => props.invert ? '1px solid #d4d4d4' : 'none'};
+ background-color: ${props => props.invert ? 'white' : '#006778'};
+    height:50px;
+margin:10px;
+    padding:15px 35px;
+    flex: 1;
+    font-family: 'HelveticaNeue';
+    color: ${props => props.invert ? '#006778' : 'white'};
+    font-size: 16px;
+  font-weight: bold;
+cursor:pointer;
+  font-stretch: condensed;
+  letter-spacing: 0.5px;
 `;

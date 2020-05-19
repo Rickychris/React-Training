@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabs } from 'antd';
+import { Tabs, Spin } from 'antd';
 
 import 'react-tabs/style/react-tabs.css';
 import './Tabview.css';
@@ -11,64 +11,29 @@ const { TabPane } = Tabs;
 
 const tabData = [
     {
-        'name': 'Grants (1)',
-        'GiftId': 'Gift ID: 4436109-1',
-        'desc': 'Vanguard Corona relief Admiral Shares.',
-        'tableData': {
-            'Entered date': '31/6/2019',
-            'Received date': '31/6/2019',
-            'Number of shares': '39',
-            'Type': 'VBS Security',
-            'Amount': '$20,000.00',
-            'Status': 'Entered',
-        },
-        'linkBtn': 'View Grants Activity'
-    },
-    {
-        'name': 'Contributions (1890)',
+        "name": "Grants",
 
-        'GiftId': 'Gift ID: 4436109-2',
-        'desc': 'Vanguard New Jersey Long-Term Tax-Exempt Fund Admiral Shares.',
-        'tableData': {
-            'Entered date': '10/4/2019',
-            'Received date': '10/4/2019',
-            'Number of shares': '50',
-            'Type': 'VBS Security',
-            'Amount': '$50,000.00',
-            'Status': 'Entered',
-        },
-        'linkBtn': 'View Contribution Activity'
     },
     {
-        'name': 'Exchange (0)',
-        'GiftId': 'Gift ID: 4436109-3',
-        'desc': 'Vanguard New Jersey Long-Term Tax-Exempt Fund Admiral Shares.',
-        'tableData': {
-            'Entered date': '31/2/2019',
-            'Received date': '31/6/2019',
-            'Number of shares': '89',
-            'Type': 'VBS Security',
-            'Amount': '$189,000.00',
-            'Status': 'Entered',
-        },
-        'linkBtn': 'View Exchange Activity'
+        "name": "Contributions",
+
     },
     {
-        'name': 'Other Transactions (0)',
-        'GiftId': 'Gift ID: 4436109-4',
-        'desc': 'Vanguard Corona relief Admiral Shares.',
-        'tableData': {
-            'Entered date': '20/6/2019',
-            'Received date': '31/6/2019',
-            'Number of shares': '45',
-            'Type': 'Always Secure',
-            'Amount': '$120,000.00',
-            'Status': 'Entered',
-        },
-        'linkBtn': 'View Other Transactions'
+        "name": "Exchange",
+
     },
+    {
+        "name": "Other Transactions",
+
+    }
 ]
-
+const LoaderDiv = styled.div`
+height:200px;
+display:flex;
+align-items:center;
+justify-content:center;
+/* margin:100px auto; */
+`;
 
 const StyledTable = styled.table`
 margin:20px 30px;
@@ -129,50 +94,76 @@ width:90%;
 
 `;
 
-const TabView = () => {
+class TabView extends React.Component {
+    state = {
+        isLoading: true,
+        error: false,
+        tabData: tabData
+    }
+    componentDidMount() {
 
-    return (
-        <Tabs type='card'>
-            {
-                tabData.map(item => (
-                    <TabPane key={item.name} tab={item.name}>
+        fetch('https://demo1164494.mockable.io/grants')
+            .then(res => res.json())
+            .then(res => this.successHandler(res))
+            .catch(error => this.errorHandler(error))
+    }
 
-                        <StyledTable>
-                            <h3>{item.GiftId}</h3>
-                            <p>{item.desc}</p>
-                            <tr>
-                                <th>Entered date</th>
-                                <th>Received date</th>
-                                <th>Number of shares</th>
-                            </tr>
-                            <tr>
-                                <td>{item.tableData["Entered date"]}</td>
-                                <td>{item.tableData["Received date"]}</td>
-                                <td>{item.tableData["Number of shares"]}</td>
-                            </tr>
-                            <tr>
+    successHandler = (response) =>
+        this.setState({
+            isLoading: false,
+            tabData: response.data
 
-                                <th>Type</th>
-                                <th>Amount</th>
-                                <th>Status</th>
-                            </tr>
-                            <tr>
-                                <td>{item.tableData.Type}</td>
-                                <td>{item.tableData.Amount}</td>
-                                <td>{item.tableData.Status}</td>
-                            </tr>
-                            <hr></hr>
-                            <p>{item.linkBtn}</p>
-                        </StyledTable>
-                    </TabPane>
-                ))
-            }
+        });
+    errorHandler = (error) => {
+        console.log(error);
+        this.setState({
+            error: true
+        })
+    }
+    render() {
+        return (
+            <Tabs type='card' >
+                {
+                    this.state.tabData.map(item => (
+                        <TabPane key={item.name} tab={item.name}>
 
-        </Tabs>
+                            {!this.state.isLoading ? <StyledTable>
+                                <h3>{item.GiftId}</h3>
+                                <p>{item.desc}</p>
+                                <tr>
+                                    <th>Entered date</th>
+                                    <th>Received date</th>
+                                    <th>Number of shares</th>
+                                </tr>
+                                <tr>
+                                    <td>{item.tableData["Entered date"]}</td>
+                                    <td>{item.tableData["Received date"]}</td>
+                                    <td>{item.tableData["Number of shares"]}</td>
+                                </tr>
+                                <tr>
+
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                                <tr>
+                                    <td>{item.tableData.Type}</td>
+                                    <td>{item.tableData.Amount}</td>
+                                    <td>{item.tableData.Status}</td>
+                                </tr>
+                                <hr></hr>
+                                <p>{item.linkBtn}</p>
+                            </StyledTable> : <LoaderDiv>{this.state.error ? <h1>Error in loading....!!</h1> : <Spin />}</LoaderDiv>}
+                        </TabPane>
+                    ))
+                }
+
+            </Tabs>
 
 
 
-    );
+        );
+    }
 }
 
 export default TabView;

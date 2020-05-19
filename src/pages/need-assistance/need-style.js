@@ -87,7 +87,9 @@ color:#505050;
     width: 300px;
     height: 40px;
     padding:5px 10px;
+    border: 1px solid darkgray;
 }
+
 
 & textarea{
     padding: 10px 20px;
