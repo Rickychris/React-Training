@@ -98,25 +98,25 @@ const EditableTable = (props) => {
 
     const columns = [
         {
-            title: 'name',
+            title: 'Name',
             dataIndex: 'name',
             width: '25%',
             editable: true,
         },
         {
-            title: 'email',
+            title: 'Email',
             dataIndex: 'email',
             width: '15%',
             editable: true,
         },
         {
-            title: 'query',
+            title: 'Query',
             dataIndex: 'query',
             width: '40%',
             editable: true,
         },
         {
-            title: 'operation',
+            title: 'Operation',
             dataIndex: 'operation',
             render: (_, record) => {
                 const editable = isEditing(record);
@@ -169,13 +169,14 @@ const EditableTable = (props) => {
     });
     return (
         <Form form={form} component={false}>
+            <styledComp.styleH1>All Submitted Data</styledComp.styleH1>
             <Table
                 components={{
                     body: {
                         cell: EditableCell,
                     },
                 }}
-                bordered
+                bordered className='tableStyles'
                 dataSource={data}
                 columns={mergedColumns}
                 rowClassName="editable-row"
@@ -189,10 +190,10 @@ const EditableTable = (props) => {
                     window.location.reload();
                 }
                 }>
-                    <styledComp.styleButton danger>Delete All</styledComp.styleButton>
+                    <styledComp.styleButton>Delete All</styledComp.styleButton>
                 </Popconfirm>
                 : null}
-            <Link to='/'><styledComp.styleButton>Back</styledComp.styleButton></Link>
+            <Link to='/'><styledComp.styleButton invert>Back</styledComp.styleButton></Link>
         </Form>
     );
 };

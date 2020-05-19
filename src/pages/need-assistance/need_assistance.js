@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Button from '../../components/Button/Button';
@@ -70,11 +70,9 @@ class NeedAssistance extends React.Component {
                         <h3>Hit a snag?</h3>
                         <span>Contact us at 888-383-4483</span>
                     </form>
-                    {/* <Link to='/'><img src={cancelImg} alt="cancel"></img></Link> */}
                 </FormWrap>
                 :
                 <FormDone>
-                    {/* <Link to='/'><img src={cancelImg} alt="cancel"></img></Link> */}
                     <h2>Request Submitted</h2>
                     <div>
                         <div></div>
@@ -82,6 +80,7 @@ class NeedAssistance extends React.Component {
                     <p>You have successfully submmited your request for assistance.
                     We will get back to you within 2 - 3 business days.</p>
                     <Button invert onClick={this.props.drawerHandler}>DONE</Button>
+                    <Link to='/data'>View All Submitted Data</Link>
                     <h3>Hit a snag?</h3>
                     <span>Contact us at 888-383-4483</span>
                 </FormDone>
