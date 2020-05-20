@@ -15,7 +15,7 @@ const menu = (
             <Link to='/data'>View all data</Link>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" href="https://github.com/Rickychris/React-Training">
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/Rickychris/React-Training">
                 Open Source on Github
       </a>
         </Menu.Item>
