@@ -34,10 +34,12 @@ class TabView extends React.Component {
         //     .then(res => res.json())
         //     .then(res => this.successHandler(res))
         //     .catch(error => this.errorHandler(error))
+
         try {
-            let response = await fetch('https://demo1164494.mockable.io/grants')
-            response = await response.json();
-            this.successHandler(response);
+            const url = 'https://demo1164494.mockable.io/grants';
+            const response = await fetch(url)
+            const data = await response.json();
+            this.successHandler(data);
         } catch (error) {
             this.errorHandler(error)
         }
