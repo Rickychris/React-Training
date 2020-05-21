@@ -2,65 +2,97 @@ import React from 'react';
 import { Tabs, Spin } from 'antd';
 
 import { StyledTable, LoaderDiv } from './TabviewStyle';
+import TableData from './TableData';
 
 const { TabPane } = Tabs;
 
 
-const tabData = [
+const tabNames = [
     {
-        "name": "Grants",
+        name: "Grants",
+        url: 'http://demo1164494.mockable.io/grants',
+        count: 0
     },
     {
-        "name": "Contributions",
+        name: "Contributions",
+        url: 'http://demo1164494.mockable.io/contributions',
+        count: 0
     },
     {
-        "name": "Exchange",
+        name: "Exchange",
+        url: 'http://demo1164494.mockable.io/exchanges',
+        count: 0
     },
     {
-        "name": "Other Transactions",
+        name: "Other Transactions",
+        url: 'http://demo1164494.mockable.io/other-transactions',
+        count: 0
     }
 ];
 
 
 class TabView extends React.Component {
     state = {
-        isLoading: true,
-        error: false,
-        tabData: tabData
+        tabNames: tabNames,
     }
-    async componentDidMount() {
-
-        // fetch('https://demo1164494.mockable.io/grants')
-        //     .then(res => res.json())
-        //     .then(res => this.successHandler(res))
-        //     .catch(error => this.errorHandler(error))
-
-        try {
-            const url = 'https://demo1164494.mockable.io/grants';
-            const response = await fetch(url)
-            const data = await response.json();
-            this.successHandler(data);
-        } catch (error) {
-            this.errorHandler(error)
-        }
-    }
-
-    successHandler = (response) =>
-        this.setState({
-            isLoading: false,
-            tabData: response.data
-
-        });
-    errorHandler = (error) => {
-        console.log(error);
-        this.setState({
-            error: true
+    updateNumbers = (title, number) => {
+        this.setState((prevState) => {
+            switch (title) {
+                case 'Grants':
+                    let newGrants = [...prevState.tabNames];
+                    newGrants[0].count = number;
+                    return {
+                        tabNames: newGrants
+                    }
+                case 'Contributions':
+                    let newCont = [...prevState.tabNames];
+                    newCont[1].count = number;
+                    return {
+                        Contributions: newCont
+                    }
+                case 'Exchange':
+                    let newExch = [...prevState.tabNames];
+                    newExch[2].count = number;
+                    return {
+                        Exchange: newExch
+                    }
+                case 'Other Transactions':
+                    let newOth = [...prevState.tabNames];
+                    newOth[3].count = number;
+                    return {
+                        OtherTransactions: newOth
+                    }
+                default:
+                    return {
+                        prevState
+                    }
+            }
         })
     }
     render() {
         return (
             <Tabs type='card' >
-                {
+                {this.state.tabNames.map(item => (
+
+                    <TabPane key={item.name} tab={`${item.name} (${item.count})`}>
+                        <TableData url={item.url} updateNum={this.updateNumbers} />
+                    </TabPane>
+                ))}
+
+                {/* <TabPane key='Grants' tab='Grants'>
+                    <TableData />
+                </TabPane>
+                <TabPane key='Contributions' tab='Contributions'>
+                    <TableData />
+                </TabPane>
+                <TabPane key='Exchange' tab='Exchange'>
+                    <TableData />
+                </TabPane>
+                <TabPane key='Other Transactions' tab='Other Transactions'>
+                    <TableData />
+                </TabPane> */}
+
+                {/* {
                     this.state.tabData.map(item => (
                         <TabPane key={item.name} tab={item.name}>
 
@@ -93,7 +125,7 @@ class TabView extends React.Component {
                             </StyledTable> : <LoaderDiv>{this.state.error ? <h1>Error in loading....!!</h1> : <Spin />}</LoaderDiv>}
                         </TabPane>
                     ))
-                }
+                } */}
 
             </Tabs>
 

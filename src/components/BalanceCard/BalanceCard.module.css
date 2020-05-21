@@ -6,6 +6,12 @@
     flex-direction: column;
     justify-content: space-between;
 }
+.BalanceCard div{
+  display: flex;
+  height: 100%;
+align-items: center;
+  align-self: center;
+}
 
 .BalanceCard p:first-child{
     color: #022737;

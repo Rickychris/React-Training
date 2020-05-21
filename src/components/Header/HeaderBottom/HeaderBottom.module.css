@@ -73,7 +73,7 @@ transform: rotate(45deg) translate(5px, 5px);
         width: 90%;
     }
 }
-@media (max-width:768px){
+@media (max-width:900px){
     .HeaderBottom{
         width: 90%;
         overflow: hidden;
