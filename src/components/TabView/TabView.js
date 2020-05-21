@@ -1,7 +1,6 @@
 import React from 'react';
-import { Tabs, Spin } from 'antd';
+import { Tabs } from 'antd';
 
-import { StyledTable, LoaderDiv } from './TabviewStyle';
 import TableData from './TableData';
 
 const { TabPane } = Tabs;
@@ -78,55 +77,6 @@ class TabView extends React.Component {
                         <TableData url={item.url} updateNum={this.updateNumbers} />
                     </TabPane>
                 ))}
-
-                {/* <TabPane key='Grants' tab='Grants'>
-                    <TableData />
-                </TabPane>
-                <TabPane key='Contributions' tab='Contributions'>
-                    <TableData />
-                </TabPane>
-                <TabPane key='Exchange' tab='Exchange'>
-                    <TableData />
-                </TabPane>
-                <TabPane key='Other Transactions' tab='Other Transactions'>
-                    <TableData />
-                </TabPane> */}
-
-                {/* {
-                    this.state.tabData.map(item => (
-                        <TabPane key={item.name} tab={item.name}>
-
-                            {!this.state.isLoading ? <StyledTable>
-                                <h3>{item.GiftId}</h3>
-                                <p>{item.desc}</p>
-                                <tr>
-                                    <th>Entered date</th>
-                                    <th>Received date</th>
-                                    <th>Number of shares</th>
-                                </tr>
-                                <tr>
-                                    <td>{item.tableData["Entered date"]}</td>
-                                    <td>{item.tableData["Received date"]}</td>
-                                    <td>{item.tableData["Number of shares"]}</td>
-                                </tr>
-                                <tr>
-
-                                    <th>Type</th>
-                                    <th>Amount</th>
-                                    <th>Status</th>
-                                </tr>
-                                <tr>
-                                    <td>{item.tableData.Type}</td>
-                                    <td>{item.tableData.Amount}</td>
-                                    <td>{item.tableData.Status}</td>
-                                </tr>
-                                <hr></hr>
-                                <p>{item.linkBtn}</p>
-                            </StyledTable> : <LoaderDiv>{this.state.error ? <h1>Error in loading....!!</h1> : <Spin />}</LoaderDiv>}
-                        </TabPane>
-                    ))
-                } */}
-
             </Tabs>
 
 
