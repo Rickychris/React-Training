@@ -8,6 +8,8 @@ import { useSelector } from "react-redux";
 
 import * as styledComp from './manageStyle';
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
+import ResponsiveNav from '../../components/Header/HeaderBottom/ResponsiveNav';
+import { NavWrap } from '../homepage/homeStyle';
 
 
 
@@ -171,36 +173,40 @@ const EditableTable = (props) => {
     });
     return (
         <Form form={form} component={false}>
-            <Breadcrumb path='Home   >   Data' />
-            <styledComp.styleH1 className='MaxWidth'>All Submitted Data</styledComp.styleH1>
-            <Table
-                components={{
-                    body: {
-                        cell: EditableCell,
-                    },
-                }}
-                bordered
-                className='tableStyles MaxWidth'
-                dataSource={data}
-                columns={mergedColumns}
-                rowClassName="editable-row"
-                pagination={{
-                    onChange: cancel,
-                }}
-            />
-            <div className='MaxWidth'>
+            <NavWrap>
 
-                {!(props.List.length === 0) ?
-                    <Popconfirm title="Sure to delete?" onConfirm={() => {
-                        localStorage.clear();
-                        window.location.reload();
-                    }
-                    }>
-                        <styledComp.styleButton>Delete All</styledComp.styleButton>
-                    </Popconfirm>
-                    : null}
-                <Link to='/'><styledComp.styleButton invert>Back</styledComp.styleButton></Link>
-            </div>
+                <ResponsiveNav />
+                <Breadcrumb path='Home   >   Data' />
+                <styledComp.styleH1 className='MaxWidth'>All Submitted Data</styledComp.styleH1>
+                <Table
+                    components={{
+                        body: {
+                            cell: EditableCell,
+                        },
+                    }}
+                    bordered
+                    className='tableStyles MaxWidth'
+                    dataSource={data}
+                    columns={mergedColumns}
+                    rowClassName="editable-row"
+                    pagination={{
+                        onChange: cancel,
+                    }}
+                />
+                <div className='MaxWidth'>
+
+                    {!(props.List.length === 0) ?
+                        <Popconfirm title="Sure to delete?" onConfirm={() => {
+                            localStorage.clear();
+                            window.location.reload();
+                        }
+                        }>
+                            <styledComp.styleButton>Delete All</styledComp.styleButton>
+                        </Popconfirm>
+                        : null}
+                    <Link to='/'><styledComp.styleButton invert>Back</styledComp.styleButton></Link>
+                </div>
+            </NavWrap>
         </Form>
     );
 };
