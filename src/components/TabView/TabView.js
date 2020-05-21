@@ -28,12 +28,19 @@ class TabView extends React.Component {
         error: false,
         tabData: tabData
     }
-    componentDidMount() {
+    async componentDidMount() {
 
-        fetch('https://demo1164494.mockable.io/grants')
-            .then(res => res.json())
-            .then(res => this.successHandler(res))
-            .catch(error => this.errorHandler(error))
+        // fetch('https://demo1164494.mockable.io/grants')
+        //     .then(res => res.json())
+        //     .then(res => this.successHandler(res))
+        //     .catch(error => this.errorHandler(error))
+        try {
+            let response = await fetch('https://demo1164494.mockable.io/grants')
+            response = await response.json();
+            this.successHandler(response);
+        } catch (error) {
+            this.errorHandler(error)
+        }
     }
 
     successHandler = (response) =>
