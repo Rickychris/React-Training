@@ -10,13 +10,14 @@ import './App.css';
 import Homepage from './pages/homepage/homepage';
 // import NeedAssistance from './pages/need-assistance/need_assistance';
 import ManageData from './pages/manageData/manageData';
-
+import Header from './components/Header/Header';
 
 function App(props) {
   useEffect(() => { props.getData() }, [props]);
   return (
 
     <BrowserRouter >
+      <Header />
       <Switch>
         <Route path='/data' exact component={ManageData} />
         <Route path='/' component={Homepage} />

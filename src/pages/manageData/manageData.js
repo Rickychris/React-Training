@@ -7,6 +7,8 @@ import { useSelector } from "react-redux";
 
 
 import * as styledComp from './manageStyle';
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
+
 
 
 const EditableCell = ({
@@ -169,14 +171,16 @@ const EditableTable = (props) => {
     });
     return (
         <Form form={form} component={false}>
-            <styledComp.styleH1>All Submitted Data</styledComp.styleH1>
+            <Breadcrumb path='Home   >   Data' />
+            <styledComp.styleH1 className='MaxWidth'>All Submitted Data</styledComp.styleH1>
             <Table
                 components={{
                     body: {
                         cell: EditableCell,
                     },
                 }}
-                bordered className='tableStyles'
+                bordered
+                className='tableStyles MaxWidth'
                 dataSource={data}
                 columns={mergedColumns}
                 rowClassName="editable-row"
@@ -184,16 +188,19 @@ const EditableTable = (props) => {
                     onChange: cancel,
                 }}
             />
-            {!(props.List.length === 0) ?
-                <Popconfirm title="Sure to delete?" onConfirm={() => {
-                    localStorage.clear();
-                    window.location.reload();
-                }
-                }>
-                    <styledComp.styleButton>Delete All</styledComp.styleButton>
-                </Popconfirm>
-                : null}
-            <Link to='/'><styledComp.styleButton invert>Back</styledComp.styleButton></Link>
+            <div className='MaxWidth'>
+
+                {!(props.List.length === 0) ?
+                    <Popconfirm title="Sure to delete?" onConfirm={() => {
+                        localStorage.clear();
+                        window.location.reload();
+                    }
+                    }>
+                        <styledComp.styleButton>Delete All</styledComp.styleButton>
+                    </Popconfirm>
+                    : null}
+                <Link to='/'><styledComp.styleButton invert>Back</styledComp.styleButton></Link>
+            </div>
         </Form>
     );
 };

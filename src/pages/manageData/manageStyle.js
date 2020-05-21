@@ -11,7 +11,7 @@ export const styleP = styled.p`
 margin:5px;
 `;
 export const styleH1 = styled.h1`
-margin:30px;
+margin:50px auto;
 font-size:36px;
 color:#022737;
 `;
@@ -20,7 +20,7 @@ export const styleButton = styled.button`
 border: ${props => props.invert ? '1px solid #d4d4d4' : 'none'};
  background-color: ${props => props.invert ? 'white' : '#006778'};
     height:50px;
-margin:10px;
+margin:10px 10px 0 0;
     padding:15px 35px;
     flex: 1;
     font-family: 'HelveticaNeue';

@@ -4,22 +4,51 @@ import classes from './MainTop.module.css';
 import BalaceCard from '../../BalanceCard/BalanceCard';
 import TabView from '../../TabView/TabView';
 
-const cardData = {
-    card1: ['Current Balance', '$120,000'],
-    card2: ['Available Balance', '$ 30,000', 'View transaction summary'],
-};
 
-const mainTop = () => (
-    <div className={[classes.MainTop, 'MaxWidth'].join(' ')}>
-        <div>
-            <BalaceCard cardData={cardData.card1} />
-            <BalaceCard cardData={cardData.card2} />
-        </div>
-        <div>
+class MainTop extends React.Component {
+    state = {
+        isLoading: true,
+        error: false,
+        data: {
+            currentBalance: '',
+            availableBalance: ''
+        }
+    };
+    componentDidMount() {
+        fetch('https://demo1164494.mockable.io/balance')
+            .then(res => res.json())
+            .then(res => this.successHandler(res))
+            .catch(error => this.errorHandler(error))
+    }
 
-            <TabView />
-        </div>
-    </div>
-);
+    successHandler = (response) => {
+        console.log(response.data);
+        this.setState({
+            isLoading: false,
+            data: response.data
 
-export default mainTop;
+        });
+    }
+    errorHandler = (error) => {
+        console.log(error);
+        this.setState({
+            error: true
+        })
+    }
+    render() {
+        return (
+            <div className={[classes.MainTop, 'MaxWidth'].join(' ')}>
+                <div>
+                    <BalaceCard name='Current Balance' balance={this.state.data.currentBalance} loading={this.state.isLoading} error={this.state.error} />
+                    <BalaceCard name='Available Balance' balance={this.state.data.availableBalance} trxSummary loading={this.state.isLoading} error={this.state.error} />
+                </div>
+                <div>
+
+                    <TabView />
+                </div>
+            </div>
+        );
+    }
+}
+
+export default MainTop;
