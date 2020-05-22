@@ -9,22 +9,22 @@ const { TabPane } = Tabs;
 const tabNames = [
     {
         name: "Grants",
-        url: 'http://demo1164494.mockable.io/grants',
+        url: 'https://demo1164494.mockable.io/grants',
         count: 0
     },
     {
         name: "Contributions",
-        url: 'http://demo1164494.mockable.io/contributions',
+        url: 'https://demo1164494.mockable.io/contributions',
         count: 0
     },
     {
         name: "Exchange",
-        url: 'http://demo1164494.mockable.io/exchanges',
+        url: 'https://demo1164494.mockable.io/exchanges',
         count: 0
     },
     {
         name: "Other Transactions",
-        url: 'http://demo1164494.mockable.io/other-transactions',
+        url: 'https://demo1164494.mockable.io/other-transactions',
         count: 0
     }
 ];
