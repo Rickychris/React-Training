@@ -22,7 +22,7 @@ class MainTop extends React.Component {
     }
 
     successHandler = (response) => {
-        console.log(response.data);
+        // console.log(response.data);
         this.setState({
             isLoading: false,
             data: response.data
