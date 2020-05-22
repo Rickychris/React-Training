@@ -9,7 +9,7 @@ const balanceCard = (props) => {
         props.name,
         props.balance,
     ];
-    console.log(props.error)
+    // console.log(props.error)
     return (
         <div className={[classes.BalanceCard]}>
             {!props.loading ?
