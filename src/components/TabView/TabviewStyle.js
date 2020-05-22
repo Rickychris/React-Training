@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const LoaderDiv = styled.div`
-height:200px;
+min-height:313px;
 display:flex;
 align-items:center;
 justify-content:center;
